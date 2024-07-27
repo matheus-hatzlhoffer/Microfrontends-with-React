@@ -19,3 +19,37 @@ In this project I will try to practice the micro-frontend capabilities and check
 ## First Approach
 
 The first approach is a run time integration using webpack module federation as is the most common stack to this architecture.
+
+### Module federation
+
+The HtmlWebpackPlugin is a plugin used to load all the js into the HTML file as a single page app
+
+The ModuleFederationPlugin is the one that allows micro frontends services to find each other.
+
+We have two kind of services: the shell that wraps all the othe micro frontends and the remote that is served by the shell.
+
+#### Shell
+
+The libraries used in this shell were:
+
+```sh
+npm install webpack@5.88.0 webpack-cli@4.10.0 webpack-dev-server@4.7.4 nodemon html-webpack-plugin@5.5.0 --save-exact
+```
+
+In the config file we set a name just to clarity, but it is not really necessary.
+
+A 'remotes' object lists all the services with names and its URLs, the key value is how the name the service is going to be imported with. The value is a URL that follows the patter "serice_name@url/service_file.js" the 'service_name' is name configured inside the micro frontend, url is where it is exposed and 'service_file' is the name of the file that has the service code and its name is configure in the remote.
+
+#### Remotes
+
+The libraries used in the remotes were:
+
+```sh
+npm install webpack@5.88.0 webpack-cli@4.10.0 webpack-dev-server@4.7.4 faker@5.1.0 html-webpack-plugin@5.5.0 --save-exact
+```
+
+In the config file of the remote, the name is going to define how other micro fronteds can call this service in its url
+
+The file name is the name of the entry file that is holds the manifest of every service exposed by the micro frontend
+
+The 'exposes' object holds a key-value of every aliases for each file exposed. The key is how other micro frontends can import that file specified in the value.

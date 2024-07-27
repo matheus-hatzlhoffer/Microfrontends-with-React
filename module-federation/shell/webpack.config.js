@@ -13,6 +13,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "shell",
       remotes: {
+        // remote_name@url/filename that is configured in the remote webpack config
         products: "products@http://localhost:8081/remoteEntry.js",
       },
     }),
