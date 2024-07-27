@@ -1,4 +1,8 @@
-import "products/ProductsIndex";
-import "cart/CartShow";
+import { mount as productMount } from "products/ProductsIndex";
+import { mount as cartMount } from "cart/CartShow";
 
-console.log("container");
+const productHTMLElement = document.querySelector("#shell-products");
+const cartHTMLElement = document.querySelector("#shell-cart");
+
+productMount(productHTMLElement);
+cartMount(cartHTMLElement);
