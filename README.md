@@ -53,3 +53,18 @@ In the config file of the remote, the name is going to define how other micro fr
 The file name is the name of the entry file that is holds the manifest of every service exposed by the micro frontend
 
 The 'exposes' object holds a key-value of every aliases for each file exposed. The key is how other micro frontends can import that file specified in the value.
+
+### Loading twice the same package
+
+As shown in the screenshot we are loading the same 'faker' library twice in the project.
+
+![module federation loading the same library twice in the project](./assets/imgs/module-federation-network-progresse.png)
+
+To fix that
+
+- add the library to the shared array in the module federation configuration inside each project that uses that
+- use the bootstrap pattern to asyn load the script in each project
+
+![module federation loading the library once](./assets/imgs/module-federation-network-progresse-shared-library.png)
+
+To assert only one version of certain libraries can be loaded, the singleton option must be set to true in the shared configuration of Module federation
