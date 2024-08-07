@@ -68,3 +68,7 @@ To fix that
 ![module federation loading the library once](./assets/imgs/module-federation-network-progresse-shared-library.png)
 
 To assert only one version of certain libraries can be loaded, the singleton option must be set to true in the shared configuration of Module federation
+
+## Second Apprach - Using different frameworks
+
+I am going to work in a dashboard application with authentication to try and test how to work with multiple micro frontends with authentication and different frameworks
