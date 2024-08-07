@@ -4,7 +4,7 @@
   "description": "The micro frontend responsible for wraping our other services",
 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config config/webpack.dev.js"
   },
   "author": "Matheus Carvalho Hatzlhoffer",
   "license": "ISC",
