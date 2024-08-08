@@ -2,8 +2,8 @@
 
 In this project I will try to practice the micro-frontend capabilities and check what is possible and the cost. The ideia is to document the process, try new ideias and do it understanding the concpets and how it works.
 
-- [ ] Create a micro frontend application
-- [ ] Connect multiple frontends
+- [X] Create a micro frontend application
+- [X] Connect multiple frontends
 - [ ] Deploy it
 - [ ] Create a new product with different technology
 - [ ] Check how authentication and autorization would work
@@ -72,3 +72,11 @@ To assert only one version of certain libraries can be loaded, the singleton opt
 ## Second Apprach - Using different frameworks
 
 I am going to work in a dashboard application with authentication to try and test how to work with multiple micro frontends with authentication and different frameworks
+
+### Problem with CSS in microfrontend apps
+
+When building common component library generate a separate CSS file with short generic class names (like "jss2"), but between diferente builds of different projects a generic class name can be equal to another causing CSS conflict
+
+This happens mostly in production mode, but can happen in development if different projects use the same class name
+
+To fix that we need to create a generate class name using Material UI
