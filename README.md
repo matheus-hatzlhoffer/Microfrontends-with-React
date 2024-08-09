@@ -79,4 +79,21 @@ When building common component library generate a separate CSS file with short g
 
 This happens mostly in production mode, but can happen in development if different projects use the same class name
 
-To fix that we need to create a generate class name using Material UI
+To fix that we need to create a generate class name using Material UI - **This is a fix to Material UI, othe libraries need different sollution or no sollution at all**
+
+### Navigation
+
+Some problems:
+
+- Both container + individual microfrontends need routing features
+  - The shell should have a routing logic to access subapps
+  - The subapp may or may not have internal routes
+- The microfrontend service needs to freely add new pages and routes without refactoring other services
+  - The service in isolation should have routing properties too
+- More than one microfrontend can be rendered
+- Use off-the-shelf routing solutions
+- Communication should be generic as possible
+
+To contemplate every requirement, I am going to use browser routing in the Shell application and Memory Routing in the microfrontend services and they will comunicate to update as need
+
+Use callback function to sync the browser and memory history in the shell and its childrens
